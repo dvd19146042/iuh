@@ -1,5 +1,7 @@
-import axios from "axios";
 
-export const login = (data: { email: string; password: string }) => {
-  return axios.post("/api/login",data);
+export const login = async (data: { email: string; password: string }) => {
+  return await $fetch("/api/login",{
+    method:"POST",
+    body:data
+  });
 };

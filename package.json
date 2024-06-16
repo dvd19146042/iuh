@@ -12,7 +12,6 @@
   "dependencies": {
     "@nuxt/kit": "^3.10.3",
     "@nuxt/ui": "^2.16.0",
-    "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.1",

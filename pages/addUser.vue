@@ -34,7 +34,8 @@ onMounted(() => {
   setInterval(async () => {
   {
       const bin = await getTempHardWareById()
-      user.code = bin.data.code
+      console.log(bin)
+      // user.code = bin.code
     }
 
   },2000)

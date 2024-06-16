@@ -1,5 +1,4 @@
 import { Auth } from "../models/authentication.model";
-import { User } from "../models/user.model";
 import { createToken } from "../utils";
 
 export default defineEventHandler(async (event) => {
@@ -16,6 +15,9 @@ export default defineEventHandler(async (event) => {
       statusMessage: "UnAuthorize",
     });
   } catch (error) {
-    return error;
+    throw createError({
+      statusCode: 400,
+      statusMessage: "UnAuthorize",
+    });
   }
 });
