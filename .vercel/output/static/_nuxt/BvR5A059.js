@@ -1,0 +1,1 @@
+const s=async e=>(console.log(e),$fetch("/api/user",{method:"DELETE",params:{id:e}})),t=async e=>$fetch("/api/user",{method:"PUT",body:e}),a=async e=>$fetch("/api/user",{method:"GET",body:e});export{a,s as d,t as u};

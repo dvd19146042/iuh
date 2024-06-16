@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui','nuxt-server-utils'],
   // nitro: {
-  //   preset: 'vercel-edge',
+  //   preset: 'vercel',
   // },
   runtimeConfig:{
    public:{
