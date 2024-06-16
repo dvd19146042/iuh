@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { object, string, type InferType } from 'yup'
 import type { FormSubmitEvent } from '#ui/types'
-import { login } from '~/api/auth'
+import { login } from '~/helpers/api/auth'
 
 const schema = object({
   email: string().email('Invalid email').required('Required'),

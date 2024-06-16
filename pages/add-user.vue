@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '#ui/types';
-import { getTempHardWareById,resetTempHardWare } from '~/api/temp';
-import { addUser } from '~/api/user';
+import { getTempHardWareById,resetTempHardWare } from '~/helpers/api/temp';
+import { addUser } from '~/helpers/api/user';
 
 
 const init = {

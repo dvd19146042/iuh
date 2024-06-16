@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '#ui/types';
-import { deleteUser, updateUser } from '~/api/user';
+import { deleteUser, updateUser } from '~/helpers/api/user';
 
 const columns = [{
   key: 'name',
