@@ -1,0 +1,9 @@
+If yarn is error then open terminal do setting: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+Step1: Edit nuxt.config.ts
+Step2: create folder server 
+-api
+  |-user.[post/put/get/delete].ts (User model in post)
+-models
+  |-user.model.ts (Table user in table)
+-plugins
+  |-mongodb.ts (config connect db)
