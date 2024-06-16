@@ -8,6 +8,7 @@ const schema = object({
   password: string()
     .required('Required')
 })
+const { data, execute, pending } = useLazyAsyncData((data: any) => login(data))
 
 type Schema = InferType<typeof schema>
 const router = useRouter()
@@ -19,25 +20,39 @@ const state = reactive({
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with event.data
   // event.preventDefault()
-  login(event.data).then((data) => {
-    console.log(data)
-    router.push('/manage')
+  console.log(event.data)
+  execute(event.data as any).then(()=>{
+    router.push({path:'/manage'})
   })
+
 }
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-screen">
-    <UForm :schema="schema" :state="state" class="space-y-2  w-1/2 max-w-[400px] m-auto h-1/2" @submit="onSubmit">
-      <UFormGroup label="Email" name="email">
-        <UInput v-model="state.email" />
+  <div class="flex items-center justify-center h-screen bg-gradient w-full">
+    <UForm :schema="schema" :state="state"
+      class=" shadow-lg flex flex-col gap-4 bg-white border border-gray-200/80 h-2/3 rounded-lg p-10 w-1/2 max-w-[400px] m-auto"
+      @submit="onSubmit">
+      <NuxtImg src="/images/logo1.png" class="m-auto h-20 w-20" />
+      <UFormGroup v-slot="{ error }" label="Email" :error="!state.email && 'You must enter an email'"
+        help="This is a nice email!">
+        <UInput v-model="state.email" type="email" placeholder="Enter email"
+          :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined" />
+      </UFormGroup>
+      <UFormGroup label="Password" :error="!state.password && 'You must enter an password'"
+        help="This is a nice Password!">
+        <template #default="{ error }">
+          <UInput class="mb-0" v-model="state.password" type="password" placeholder="Enter password"
+            :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined" />
+        </template>
+        <template #error="{ error }">
+          <span :class="[error ? 'text-red-500 dark:text-red-400' : 'text-primary-500 dark:text-primary-400', 'text-xs']">
+            {{ error ? error : 'Your password is valid' }}
+          </span>
+        </template>
       </UFormGroup>
 
-      <UFormGroup label="Password" name="password">
-        <UInput v-model="state.password" type="password" />
-      </UFormGroup>
-
-      <UButton type="submit">
+      <UButton :loading="pending" type="submit" class="flex items-center justify-center h-12">
         Submit
       </UButton>
     </UForm>
