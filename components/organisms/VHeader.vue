@@ -14,6 +14,10 @@ const tabs = [
     {
         label: 'Đăng ký tài khoản',
         route: '/manage/register'
+    },
+    {
+        label: 'Đăng ký tài khoản',
+        route: '/manage/history'
     }
 ]
 

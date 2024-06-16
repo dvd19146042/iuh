@@ -2,6 +2,7 @@ import { Temp } from "~/server/models/temp.model";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  console.log(body)
   const data = {
     code: body.code,
   };
