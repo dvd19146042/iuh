@@ -16,7 +16,7 @@ const tabs = [
         route: '/manage/register'
     },
     {
-        label: 'Đăng ký tài khoản',
+        label: ':Lịch sử',
         route: '/manage/history'
     }
 ]
